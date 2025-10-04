@@ -1,0 +1,17 @@
+healthcheck:
+  test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+  interval: 10s
+  timeout: 5s
+  retries: 5
+  start_period: 30s
+MongoDB container starts.
+
+Docker waits 30 seconds (start_period).
+
+Then begins health checks every 10 seconds.
+
+Each health check must complete in ≤ 5 seconds.
+
+If 5 checks in a row fail (i.e., for 5×10s = 50 seconds), the container is marked UNHEALTHY.
+
+If any check passes, the counter resets (it needs 5 failures in a row to be unhealthy).
