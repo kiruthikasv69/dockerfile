@@ -1,0 +1,18 @@
+migration:
+  build:
+    context: .
+    dockerfile: scripts/Dockerfile.migration
+
+
+explanation 
+migration refers to database schema migrations — i.e., updating the structure of your database (like creating tables, adding columns, indexes, etc.) before your main app starts.
+Why It’s Needed
+
+When you deploy an app (for example, your EasyShop app), your application might need a specific database structure (collections/tables/fields) to run correctly.
+So before launching the main app container, you:
+
+Run the migration container first.
+
+It connects to MongoDB and executes migration scripts (like creating initial collections or inserting seed data).
+
+Once it completes successfully, the app container starts.
