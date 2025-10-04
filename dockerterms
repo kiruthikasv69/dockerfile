@@ -6,6 +6,8 @@ healthcheck:
   start_period: 30s
 MongoDB container starts.
 
+
+explanation 
 Docker waits 30 seconds (start_period).
 
 Then begins health checks every 10 seconds.
